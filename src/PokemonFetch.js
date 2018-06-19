@@ -31,18 +31,21 @@ class PokemonFetch extends Component {
     const name = user.name
     const weight = user.weight
     const height = user.height
-    var pkmUrl = PokemonSprite.getSprite(this.state.namu)
+    const spriteURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + user.id +  ".png"
+    console.log(user)
 
     return (
-      <div className="PokemonFetch">
-        <img src={pkmUrl} alt="spriteHere" />
+      <div className="PokemonFetch">      
+      <img src={spriteURL} alt="" />
         <h2>
-            Name: {name} weight: {weight} <br />
+            Name: {name} Weight: {weight} 
         </h2>
         <h3> Height: {height}</h3>
       </div>
     )
   }
 }
+
+
 
 export default PokemonFetch
