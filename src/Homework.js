@@ -6,7 +6,7 @@ import Pokemon from './Pokemon';
 
 const Homework = () => {
   return (
-    <div className="Homework">
+    <div className="Pokemon">
       
       
       <Pokemon />

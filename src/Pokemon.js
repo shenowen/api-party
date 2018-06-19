@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
+import PokemonFetch from './PokemonFetch';
+
 class Pokemon extends Component {
     state = {
-      username: '',
+      name: '',
     }
   
     handleChange = (ev) => {
-      this.setState({ username: ev.target.value })
+      this.setState({ name: ev.target.value })
     }
   
     handleSubmit = (ev) => {
       ev.preventDefault()
-      this.props.history.push(`http://pokeapi.co/api/v2/pokemon/${this.state.username}`)
+      this.props.history.push(`/Pokemon/${this.state.name}`)
     }
   
     render() {
       return (
-        <div className="Github">
+        <div className="Pokemon">
           <img
             src="http://i0.kym-cdn.com/photos/images/newsfeed/001/024/523/1c7.jpg"
             alt="Pokemon"
@@ -28,7 +30,7 @@ class Pokemon extends Component {
             <div>
               <input
                 type="text"
-                value={this.state.username}
+                value={this.state.name}
                 onChange={this.handleChange}
               />
             </div>
@@ -38,7 +40,8 @@ class Pokemon extends Component {
               </button>
             </div>
           </form>
-  
+        
+          <Route path="/Pokemon/:name" component={PokemonFetch} />
           
         </div>
       )
